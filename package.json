@@ -1,0 +1,25 @@
+{
+  "name": "shipit-cowboy",
+  "version": "0.0.1",
+  "description": "Deploy your working directory using shipit-deploy.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryankevans/shipit-cowboy.git"
+  },
+  "author": "Ryan K. Evans",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryankevans/shipit-cowboy/issues"
+  },
+  "homepage": "https://github.com/ryankevans/shipit-cowboy#readme",
+  "devDependencies": {
+    "chalk": "^1.1.0",
+    "coffee-script": "^1.9.3",
+    "lodash": "^3.10.0",
+    "shipit-deploy": "^2.0.0"
+  }
+}

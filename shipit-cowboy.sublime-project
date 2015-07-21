@@ -1,0 +1,25 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				".git",
+				"node_modules"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"todoreview":
+		{
+			"exclude_folders":
+			[
+				".git*",
+				"node_modules*"
+			]
+		}
+	}
+}
