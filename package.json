@@ -1,6 +1,6 @@
 {
   "name": "shipit-cowboy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Deploy your working directory using shipit-deploy.",
   "main": "index.js",
   "scripts": {
@@ -16,10 +16,14 @@
     "url": "https://github.com/ryankevans/shipit-cowboy/issues"
   },
   "homepage": "https://github.com/ryankevans/shipit-cowboy#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "bluebird": "^3.0.5",
     "chalk": "^1.1.0",
     "coffee-script": "^1.9.3",
+    "fs-extra": "^0.24.0",
     "lodash": "^3.10.0",
-    "shipit-deploy": "^2.0.0"
+    "shipit-deploy": "^2.0.0",
+    "trash": "^3.2.0"
   }
 }

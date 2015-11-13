@@ -1,16 +1,19 @@
+assert = require 'assert'
 chalk = require 'chalk'
 Promise = require 'bluebird'
-trash = Promise.promisify(require 'trash')
+trash = require 'trash'
 fse = Promise.promisifyAll(require 'fs-extra')
 
-module.exports = (shipit) ->
+module.exports = (shipit, prohibitedEnvironments = ['production']) ->
   require('shipit-deploy')(shipit)
   require('../helpers/assert-environment')(shipit)
 
   isCowboy = false
 
   shipit.blTask 'cowboy', ->
-    shipit.assertNotEnvironment 'production', "Cowboy deploys to production are prohibited."
+    shipit.assertNotEnvironment(prohibitedEnvironments,
+      "Cowboy deploys to #{shipit.environment} are prohibited.")
+    assert shipit.config.cowboySrc?, "cowboySrc not defined"
     isCowboy = true
 
   shipit.task('deploy', [
@@ -30,4 +33,5 @@ module.exports = (shipit) ->
       shipit.log "Deleting workspace at #{shipit.config.workspace}"
       trash [shipit.config.workspace]
     .then ->
+      console.log "Copying from #{shipit.config.cowboySrc} to #{shipit.config.workspace}"
       fse.copyAsync shipit.config.cowboySrc, shipit.config.workspace
