@@ -35,3 +35,5 @@ module.exports = (shipit, prohibitedEnvironments = ['production']) ->
     .then ->
       console.log "Copying from #{shipit.config.cowboySrc} to #{shipit.config.workspace}"
       fse.copyAsync shipit.config.cowboySrc, shipit.config.workspace
+    .then ->
+      shipit.emit 'fetched'
