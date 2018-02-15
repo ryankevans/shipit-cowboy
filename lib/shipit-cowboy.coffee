@@ -14,18 +14,10 @@ module.exports = (shipit, prohibitedEnvironments = ['production']) ->
     shipit.assertNotEnvironment(prohibitedEnvironments,
       "Cowboy deploys to #{shipit.environment} are prohibited.")
     assert shipit.config.cowboySrc?, "cowboySrc not defined"
-    isCowboy = true
-
-  shipit.task('deploy', [
-    'deploy:init'
-    'deploy:cowboy:fetch' # 'deploy:fetch'
-    'deploy:update'
-    'deploy:publish'
-    'deploy:clean'
-  ])
+    shipit.task('deploy:fetch', ['deploy:cowboy:fetch'])
 
   shipit.blTask 'deploy:cowboy:fetch', ->
-    shipit.start (if isCowboy then 'deploy:cowboy:copy' else 'deploy:fetch')
+    shipit.start 'deploy:cowboy:copy'
 
   shipit.blTask 'deploy:cowboy:copy', ->
     fse.mkdirsAsync shipit.config.workspace
