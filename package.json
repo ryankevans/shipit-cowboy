@@ -1,6 +1,6 @@
 {
   "name": "shipit-cowboy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Deploy your working directory using shipit-deploy.",
   "main": "index.js",
   "scripts": {
